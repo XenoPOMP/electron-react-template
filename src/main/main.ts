@@ -14,6 +14,14 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+import {
+  defaultSize,
+  getWindowSettings,
+  maxSize,
+  minSize,
+  saveWindowSettings,
+  useFrame,
+} from './settings';
 
 class AppUpdater {
   constructor() {
@@ -50,8 +58,8 @@ const installExtensions = async () => {
 
   return installer
     .default(
-      extensions.map((name) => installer[name]),
-      forceDownload
+      extensions.map(name => installer[name]),
+      forceDownload,
     )
     .catch(console.log);
 };
@@ -69,10 +77,17 @@ const createWindow = async () => {
     return path.join(RESOURCES_PATH, ...paths);
   };
 
+  const windowSettings = getWindowSettings();
+
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728,
+    width: windowSettings.size[0],
+    height: windowSettings.size[1],
+    minWidth: minSize[0],
+    minHeight: minSize[1],
+    frame: useFrame,
+    maxWidth: maxSize[0],
+    maxHeight: maxSize[1],
     icon: getAssetPath('icon.png'),
     webPreferences: {
       preload: app.isPackaged
@@ -82,6 +97,12 @@ const createWindow = async () => {
   });
 
   mainWindow.loadURL(resolveHtmlPath('index.html'));
+
+  mainWindow.on('resized', () =>
+    saveWindowSettings({
+      size: mainWindow ? mainWindow.getSize() : defaultSize,
+    }),
+  );
 
   mainWindow.on('ready-to-show', () => {
     if (!mainWindow) {
@@ -102,7 +123,7 @@ const createWindow = async () => {
   menuBuilder.buildMenu();
 
   // Open urls in the user's browser
-  mainWindow.webContents.setWindowOpenHandler((edata) => {
+  mainWindow.webContents.setWindowOpenHandler(edata => {
     shell.openExternal(edata.url);
     return { action: 'deny' };
   });
