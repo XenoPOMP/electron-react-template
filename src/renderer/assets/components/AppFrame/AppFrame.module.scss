@@ -1,0 +1,15 @@
+@import "./src/renderer/assets/styles/flex-center";
+
+.frame {
+  height: 100%;
+  padding-left: var(--app-padding);
+  @extend %flexCenter;
+  justify-content: space-between;
+  -webkit-app-region: drag;
+
+  .controls {
+    height: 100%;
+    @extend %flexCenter;
+    -webkit-app-region: no-drag;
+  }
+}

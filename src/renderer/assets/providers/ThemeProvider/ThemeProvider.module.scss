@@ -1,0 +1,14 @@
+.themes {
+  --app-padding: 20px;
+
+  &.dark {
+    --app-background: #2C2C2D;
+
+
+    // App frame
+    --app-frame-control-color: #7B7D80;
+    --app-frame-hover-control-background-color: #3C3A3A;
+    --app-frame-hover-control-close-background: #FF0000;
+    --app-frame-hover-control-close-color: white;
+  }
+}

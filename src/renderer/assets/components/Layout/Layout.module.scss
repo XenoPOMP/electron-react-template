@@ -1,0 +1,10 @@
+.layout {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--app-background);
+  display: grid;
+  grid-template-rows: 28px 1fr;
+}

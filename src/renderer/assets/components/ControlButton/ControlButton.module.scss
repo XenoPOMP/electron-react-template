@@ -1,0 +1,33 @@
+@import "src/renderer/assets/styles/flex-center";
+
+.icon {
+  height: 100%;
+  aspect-ratio: 1;
+  @extend %flexCenter;
+  user-select: none;
+  cursor: pointer;
+  transition: background .075s ease;
+
+  &:hover {
+    background: var(--app-frame-hover-control-background-color);
+  }
+
+  svg {
+    rect, path {
+      fill: var(--app-frame-control-color);
+      transition: fill .075s ease;
+    }
+  }
+
+  &.close {
+    &:hover {
+      background: var(--app-frame-hover-control-close-background);
+
+      svg {
+        rect, path {
+          fill: var(--app-frame-hover-control-close-color);
+        }
+      }
+    }
+  }
+}

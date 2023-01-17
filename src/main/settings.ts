@@ -11,7 +11,7 @@ type Theme = 'dark' | 'light';
 const minSize = [500, 450]; // Minimum size of window
 const defaultSize = [1280, 720]; // Default size of window
 const maxSize = [1280, 720]; // Maximum size of window
-const useFrame = true; // Use frame or not
+const useFrame = false; // Use frame or not
 
 // Function to get window settings
 const getWindowSettings = (): WindowSettings => {
