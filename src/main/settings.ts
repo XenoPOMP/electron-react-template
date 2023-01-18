@@ -31,6 +31,7 @@ const saveWindowSettings = (settings: WindowSettings) => {
   storage.set('window-settings', settings);
 };
 
+// Exports
 export {
   getWindowSettings,
   saveWindowSettings,

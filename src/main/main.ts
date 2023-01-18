@@ -101,6 +101,7 @@ const createWindow = async () => {
 
   mainWindow.loadURL(resolveHtmlPath('index.html'));
 
+  // Save window size when it`s being changed
   mainWindow.on('resized', () =>
     saveWindowSettings({
       size: mainWindow ? mainWindow.getSize() : defaultSize,
