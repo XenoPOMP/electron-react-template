@@ -1,4 +1,4 @@
-import { AppSettings } from '@redux/reducers/appSettings';
+import { AppSettings } from '@redux/reducers/appSettingsSlice';
 
 export type StoreType = {
   appSettings: AppSettings;

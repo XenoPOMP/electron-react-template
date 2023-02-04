@@ -106,8 +106,7 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.0",
-    "redux": "^4.2.0",
-    "that-sparks": "^0.1.8"
+    "redux": "^4.2.0"
   },
   "devDependencies": {
     "@electron/notarize": "^1.2.3",
