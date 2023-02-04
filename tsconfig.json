@@ -18,7 +18,8 @@
       "@components/*": ["renderer/assets/components/*"],
       "@providers/*": ["renderer/assets/providers/*"],
       "@interfaces/*": ["renderer/assets/interfaces/*"],
-      "@redux/*": ["renderer/assets/redux/*"]
+      "@redux/*": ["renderer/assets/redux/*"],
+      "@hooks/*": ["renderer/assets/hooks/*"]
     }
   },
   "exclude": ["test", "release/build", "release/app/dist", ".erb/dll"]
